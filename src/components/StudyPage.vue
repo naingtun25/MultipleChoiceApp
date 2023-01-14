@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts">
+    const imgJsonData = JSON.parse(localStorage.getItem('imgJsonData') || '{}').slides;
     import {
         IonHeader,
         IonTitle,
@@ -54,7 +55,7 @@
         },
         data(){
           return{
-            slides: [{title:'',img:''}]
+            slides: imgJsonData
           }
         },
     };

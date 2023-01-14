@@ -23,28 +23,20 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { Preferences } from '@capacitor/preferences';
-
-const readImgJson = async () => {
+async () => {
   fetch('/assets/imgs/imagesPath.json')
   .then(response => response.json())
   .then(data => {
-      Preferences.set({ key: 'jsonFile', value: JSON.stringify(data) });
+      localStorage.setItem('imgJsonData',JSON.stringify(data))
+      console.log('read json finish');
   })
   .catch(error => console.log(error));
 };
 
-const getImgJson = async () => {
-  const { value } = await Preferences.get({ key: 'jsonFile' });
-  return value;
-};
-
-readImgJson();
-
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
-  
+
 router.isReady().then(() => {
   app.mount('#app');
 });
