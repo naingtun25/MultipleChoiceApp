@@ -1,0 +1,7 @@
+{
+  "name": "Multiple_Choice_App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

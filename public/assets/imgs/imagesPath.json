@@ -1,0 +1,16 @@
+{
+    "slides" : [
+        {
+          "title": "Slide 1",
+          "img": "https://www.chevrolet.com/content/dam/chevrolet/na/us/english/vdc-collections/2023/perfomance/corvette/01-images/nav/2023-corvette-3lt-gkz-driver-front-3quarter-nav.jpg?imwidth=960"
+        },
+        {
+          "title": "Slide 2",
+          "img": "https://images.drive.com.au/driveau/image/upload/c_fill,h_1080,w_1920/q_auto:eco/f_auto/v1/cms/uploads/jjslyagf8e3gcny2doyy"
+        },
+        {
+          "title": "Slide 3",
+          "img": "https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Mahindra-Scorpio-N-300620221053.jpg&w=872&h=578&q=75&c=1"
+        }
+      ]
+}
