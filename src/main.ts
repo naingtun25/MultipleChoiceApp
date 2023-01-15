@@ -23,15 +23,7 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-async () => {
-  fetch('/assets/imgs/imagesPath.json')
-  .then(response => response.json())
-  .then(data => {
-      localStorage.setItem('imgJsonData',JSON.stringify(data))
-      console.log('read json finish');
-  })
-  .catch(error => console.log(error));
-};
+window.screen.orientation.lock('portrait');
 
 const app = createApp(App)
   .use(IonicVue)

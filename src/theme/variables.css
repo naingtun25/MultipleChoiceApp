@@ -115,6 +115,14 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-gradient5-shade: #5ca56c;
   --ion-color-gradient5-tint: #78c288;
 
+    /** gradient6 **/
+    --ion-color-gradient6: linear-gradient(to right, #b128f4 0%, #1daceb 51%, #b128f4 100%);
+    --ion-color-gradient6-rgb: 105, 187, 123;
+    --ion-color-gradient6-contrast: #000000;
+    --ion-color-gradient6-contrast-rgb: 255, 255, 255;
+    --ion-color-gradient6-shade: #5ca56c;
+    --ion-color-gradient6-tint: #78c288;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -277,10 +285,6 @@ http://ionicframework.com/docs/theming/ */
 }
 
 /** my CSS Variables **/
-ion-title {
-  font-size: 2rem;
-  text-align: center;
-}
 
 .ion-color-gradient1 {
   --ion-color-base: var(--ion-color-gradient1);
@@ -327,13 +331,65 @@ ion-title {
   --ion-color-tint: var(--ion-color-gradient5-tint);
 }
 
+.ion-color-gradient6 {
+  --ion-color-base: var(--ion-color-gradient6);
+  --ion-color-base-rgb: var(--ion-color-gradient6-rgb);
+  --ion-color-contrast: var(--ion-color-gradient6-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-gradient6-contrast-rgb);
+  --ion-color-shade: var(--ion-color-gradient6-shade);
+  --ion-color-tint: var(--ion-color-gradient6-tint);
+}
+
+ion-title {
+  font-size: large;
+  text-align: center;
+}
+
 .card-btn {
   width: 200px;
   height: 100px;
+  font-size: large;
 }
 
 .center {
   text-align: center;
   margin: auto;
-  width: 75%;
+  width: 85%;
+}
+
+ion-col {
+  border: solid 1px rgb(95, 60, 252);
+  color: rgb(95, 60, 252);
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+ion-checkbox {
+  --background-checked: #6815ec;;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 6px;
+  border: 2px solid #6815ec;
+}
+
+.round-border-img {
+  border-radius: 20px;
+}
+
+.grounded-radiants {
+  border-radius: 50px; /*1*/
+  border: 10px solid transparent; /*2*/
+  background: linear-gradient(45deg,red,blue) border-box; /*3*/
+  -webkit-mask: /*4*/
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; /*5'*/
+          mask-composite: exclude; /*5*/
 }

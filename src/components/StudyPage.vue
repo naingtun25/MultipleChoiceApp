@@ -10,9 +10,9 @@
 <ion-content class="ion-padding">
     <IonSlides style="height: 100%">
         <IonSlide v-for="(slide, index) in slides" :key="index">
-          <IonCard class="center">                
+          <IonCard class="center">
             <h1>{{slide.title}}</h1>
-            <img :src="slide.img"/>
+            <img :src="slide.img" style="width: 80%"/>
             <ion-card-header>
                 <ion-card-subtitle>Destination</ion-card-subtitle>
                 <ion-card-title>Madison, WI</ion-card-title>
@@ -28,7 +28,8 @@
 </template>
 
 <script lang="ts">
-    const imgJsonData = JSON.parse(localStorage.getItem('imgJsonData') || '{}').slides;
+    import imgSlides from '../../public/assets/imgs/studyCardPath.json'
+
     import {
         IonHeader,
         IonTitle,
@@ -55,7 +56,7 @@
         },
         data(){
           return{
-            slides: imgJsonData
+            slides: JSON.parse(JSON.stringify(imgSlides) || '{}').slides
           }
         },
     };
