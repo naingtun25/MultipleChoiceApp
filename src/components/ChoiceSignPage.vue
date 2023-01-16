@@ -2,14 +2,14 @@
   <ion-header>
     <ion-toolbar>
     <ion-buttons slot="start">
-        <ion-back-button @click="onBackButtonClick"></ion-back-button>
+        <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Choice Sign</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="ion-padding ion-text-center">
-    <h3>No. {{ problemNum }} </h3>
+    <h3>No. {{ String(problemNum).padStart(3, '0') }} </h3>
     <p>{{ generateChoiceProblem() }}</p>
     <ion-radio-group v-model="selectedValue" ref="radioGroup">
       <ion-item color="transparent" lines="none">
@@ -36,8 +36,7 @@
   </ion-content>
 </template>
   
-<script>    
-    let score = 1;
+<script>
     import { defineComponent } from 'vue';
     import { IonHeader, IonTitle, IonToolbar, IonContent, IonButtons, IonBackButton, IonRadioGroup, IonRadio, IonItem, alertController, toastController } from '@ionic/vue';
     import signImg from '../../public/assets/imgs/signPath.json';
@@ -49,7 +48,8 @@
           selectedValue: '0',
           dataCounts: signImg.dataCounts,
           problemNum: 1,
-          problems: []
+          problems: [],
+          score: 1
         }
       },
       methods: {
@@ -60,11 +60,11 @@
           }
           let headerMessage = 'မှားသည်';
           let subHeaderMessage = 'အဖြေမှန်: ' + this.selectedValue;
-          const scoreMessage = 'ရမှတ်: ' + score;
+          const scoreMessage = 'ရမှတ်: ' + this.score;
           if(this.selectedValue != '0'){
             headerMessage = 'မှန်သည်';
             subHeaderMessage = '';
-            score = score + 1;
+            this.score = this.score + 1;
           }
           const alert = await alertController.create({
             header: headerMessage,
@@ -86,9 +86,6 @@
         nextHandler(){
           this.selectedValue = '0';
           this.problemNum += 1;
-        },
-        onBackButtonClick() {
-          score = 1;
         },
         async presentToast() {
           const toast = await toastController.create({
