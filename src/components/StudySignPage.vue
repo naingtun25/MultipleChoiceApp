@@ -10,7 +10,7 @@
     <ion-content>
         <div v-for="index in dataCounts" :key="index" class="ion-text-center">        
             <ion-card>
-                <h4 style="color: black;">No. {{ String(index).padStart(3, '0') }}</h4>
+                <h4 style="color: black;">No. {{ zeroPad(index,3) }}</h4>
                 <img :src="getImgPath(zeroPad(index,3))" style="width: 50%"/>
                 <img :src="getImgPath(zeroPad(index,3) + 'w')" style="width: 75%"/>
             </ion-card>
@@ -45,6 +45,9 @@
               }
             },
             methods:{
+                zeroPad(num: number, places: number) {
+                    return String(num).padStart(places, '0')
+                },
                 getImgPath(name: string){
                     return '/assets/imgs/sign/' + name + '.png';
                 }
