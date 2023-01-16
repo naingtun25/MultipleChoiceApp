@@ -8,27 +8,24 @@
     </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-    <IonSlides style="height: 100%">
-        <IonSlide v-for="(slide, index) in slides" :key="index">
-          <IonCard class="center">
-            <h1>{{slide.title}}</h1>
-            <img :src="slide.img" style="width: 80%"/>
-            <ion-card-header>
-                <ion-card-subtitle>Destination</ion-card-subtitle>
-                <ion-card-title>Madison, WI</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-                Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-            </ion-card-content>
-            </IonCard>
-        </IonSlide>
-    </IonSlides>
-
+    <ion-nav-link router-direction="forward" :component="studyRegulationPageComponent">        
+        <ion-item button detail lines="none" class="ion-item-border">
+            <ion-label>Regulations</ion-label>
+            <!-- <img src="../../public/assets/imgs/word.png"/> -->
+        </ion-item>
+    </ion-nav-link><br>
+    <ion-nav-link router-direction="forward" :component="studySignPageComponent">        
+        <ion-item button detail lines="none" class="ion-item-border">
+            <!-- <img src="../../public/assets/imgs/word.png"/> -->
+            <ion-label>Signs</ion-label>
+        </ion-item>
+    </ion-nav-link>
 </ion-content>
 </template>
 
 <script lang="ts">
-    import imgSlides from '../../public/assets/imgs/studyCardPath.json'
+    import StudyRegulationPage from './StudyRegulationPage.vue';
+    import StudySignPage from './StudySignPage.vue';
 
     import {
         IonHeader,
@@ -37,9 +34,9 @@
         IonContent,
         IonButtons,
         IonBackButton,
-        IonCard,
-        IonSlide,
-        IonSlides,
+        IonItem,
+        IonLabel,
+        IonNavLink
     } from '@ionic/vue';
 
     export default {
@@ -50,13 +47,14 @@
         IonContent,
         IonButtons,
         IonBackButton,
-        IonCard,
-        IonSlide,
-        IonSlides
+        IonItem,
+        IonLabel,
+        IonNavLink
         },
         data(){
           return{
-            slides: JSON.parse(JSON.stringify(imgSlides) || '{}').slides
+            studyRegulationPageComponent: StudyRegulationPage,
+            studySignPageComponent: StudySignPage,
           }
         },
     };
